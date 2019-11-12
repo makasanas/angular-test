@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="contact-form">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12"></div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <form [formGroup]="contactForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="name" placeholder="Your Name">
+                        <div *ngIf="(contactForm.get('name').dirty || contactForm.get('name').touched) && contactForm.get('name').errors"
+                            class="invalid">
+                            <div *ngIf="contactForm.controls.name.errors.required">Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" formControlName="email" placeholder="Your Email">
+                        <div *ngIf="(contactForm.get('email').dirty || contactForm.get('email').touched) && contactForm.get('email').errors"
+                            class="invalid">
+                            <div *ngIf="contactForm.controls.email.errors.required">Email is required</div>
+                            <div *ngIf="contactForm.controls.email.errors.pattern">Email is not valid</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="company" placeholder="Company Name">
+                        <div *ngIf="(contactForm.get('company').dirty || contactForm.get('company').touched) && contactForm.get('company').errors"
+                            class="invalid">
+                            <div *ngIf="contactForm.controls.company.errors.required">Company is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="country" placeholder="Country">
+                        <div *ngIf="(contactForm.get('country').dirty || contactForm.get('country').touched) && contactForm.get('country').errors"
+                            class="invalid">
+                            <div *ngIf="contactForm.controls.country.errors.required">Country is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="website" placeholder="Website Name">
+                        <div *ngIf="(contactForm.get('website').dirty || contactForm.get('website').touched) && contactForm.get('website').errors"
+                            class="invalid">
+                            <div *ngIf="contactForm.controls.website.errors.required">Website Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" formControlName="websiteUrls" rows="5"
+                            placeholder="Enter all your website URL(one URL per row)"></textarea>
+                        <div *ngIf="(contactForm.get('websiteUrls').dirty || contactForm.get('websiteUrls').touched) && contactForm.get('websiteUrls').errors"
+                            class="invalid">
+                            <div *ngIf="contactForm.controls.websiteUrls.errors.required">Website url is required</div>
+                        </div>
+                    </div>
+                </form>
+                <button class="btn btn-block btn-success" (click)="submitForm();">
+                    <span>Submit</span>
+                </button>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12"></div>
+        </div>
+    </div>
+</div>
